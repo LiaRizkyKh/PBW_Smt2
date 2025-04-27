@@ -1,0 +1,41 @@
+.btn {
+    filter: opacity(1);
+}
+
+.btn:hover {
+    filter: opacity(0.3);
+}
+
+.bg-dark {
+    background-color: #1d2025 !important;
+}
+
+.bg-red {
+    background-color: #dc3545 !important;
+}
+
+.light-mode {
+    color: #212529 !important;
+}
+
+.dark-mode {
+    background-color: #6c757d !important;
+    color: white !important;
+}
+
+#article.dark-mode {
+    background-color: #212529 !important;
+}
+
+#footer.dark-mode {
+    background-color: #212529 !important;
+    color: white !important;
+}
+
+#footer.dark-mode i {
+    color: white !important;
+}
+
+#footer.light-mode {
+    color: black !important;
+}
