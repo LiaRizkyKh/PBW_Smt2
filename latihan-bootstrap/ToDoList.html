@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <link rel="icon" href="img/logo.png" /> -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sinoo's Web</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav text-dark ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html#article">Article</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="ToDoList.html">To Do List</a>
+                    </li>
+                    <button id="dark-mode" type="button" class="btn bg-dark text-white"><i
+                            class="bi bi-moon-stars-fill"></i></button>
+                    <button id="light-mode" type="button" class="btn bg-red text-white"><i
+                            class="bi bi-sun"></i></button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="text-center p-5 bg-danger-subtle text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex flex-sm-row-reverse align-items-center">
+                <img src="img/genshin1.jpg" alt="" class="img-fluid" width="300">
+                <div>
+                    <h1 class="fw-bold display-4">Create Memories, Save Memories, Everyday</h1>
+                    <h4 class="lead display-6">Mencatat semua kegiatan sehari-hari yang ada tanpa terkecuali</h4>
+                    <h6>
+                        <span id="tanggal"></span>
+                        <span id="jam"></span>
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ToDo" class="text-center p-5 text-sm-start">
+        <div class="container">
+            <h1 class="fw-bold display-4 pb-3 text-center">To Do List</h1>
+            <div class="card p-4">
+                <div class="row row-cols-1 row-cols-md-2 justify-content-center">
+                    <div class="col">
+                        <div class="todo-app">
+                            <h4>Deskripsi program to do list</h4>
+                            <div class="description">
+                                <p>Ini adalah Daftar Tugas sederhana yang memungkinkan Anda untuk:</p>
+                                <ul>
+                                    <li>Menambahkan tugas baru beserta nama dan tanggal</li>
+                                    <li>Menandai tugas yang sudah selesai</li>
+                                    <li>Mengedit tugas yang sudah ada</li>
+                                    <li>Menghapus tugas yang tidak diperlukan lagi</li>
+                                </ul>
+                                <p>Cara menggunakan aplikasi:</p>
+                                <ol>
+                                    <li>Masukkan nama tugas dan pilih tanggal pada formulir</li>
+                                    <li>Klik "Save" untuk menambahkan tugas</li>
+                                    <li>Gunakan kotak centang untuk menandai tugas yang selesai</li>
+                                    <li>Klik "Edit" untuk mengubah tugas</li>
+                                    <li>Klik "Update" untuk mengupdate tugas</li>
+                                    <li>Klik "Delete" untuk menghilangkan tugas</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col border-start">
+                        <div class="todo-app">
+                            <div class="form-container">
+                                <div class="form-group pb-2 d-flex justify-content-between">
+                                    <label for="taskName">Nama Kegiatan:</label>
+                                    <input type="text" id="taskName" placeholder="" class="w-100">
+                                </div>
+                                <div class="form-group pb-2 d-flex justify-content-between">
+                                    <label for="taskDate">Tanggal Kegiatan:</label>
+                                    <input type="date" id="taskDate" class="w-100">
+                                </div>
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button id="saveBtn" class="btn btn-primary btn-filter">Save</button>
+                                    <button id="clearBtn" class="btn btn-danger btn-filter">Clear</button>
+                                </div>
+                            </div>
+                            <div class="border table-container mt-4">
+                                <table id="todoTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Kegiatan</th>
+                                            <th>Tanggal</th>
+                                            <th>Selesai</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="todoTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="text-center p-5 bg-danger-subtle">
+        <div>
+            <a href="https://www.instagram.com/"><i class="bi bi-instagram text-black"></i></a>
+            <a href="https://x.com/"><i class="bi bi-twitter text-black"></i></a>
+            <a href="https://wa.me/"><i class="bi bi-whatsapp text-black"></i></a>
+        </div>
+        <div>Lia Rizky Khairunnisa <i class="bi bi-c-circle"></i> 2025</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+        </script>
+
+    <script type="text/javascript">
+        window.setTimeout("tampilWaktu()", 1000);
+
+        function tampilWaktu() {
+            var waktu = new Date();
+            var bulan = waktu.getMonth() + 1;
+
+            setTimeout("tampilWaktu()", 1000);
+            document.getElementById("tanggal").innerHTML =
+                waktu.getDate() + "/" + bulan + "/" + waktu.getFullYear();
+            document.getElementById("jam").innerHTML =
+                waktu.getHours() + ":" + waktu.getMinutes() + ":" + waktu.getSeconds();
+        }
+
+        document.getElementById("light-mode").onclick = function () {
+            addClassToElements(["hero", "footer"], "light-mode");
+            removeClassToElements(["hero", "footer"], "dark-mode");
+            addClass('table-striped', 'table-light');
+            removeClass('table-striped', 'table-dark');
+        }
+
+        document.getElementById("dark-mode").onclick = function () {
+            addClassToElements(["hero", "footer"], "dark-mode");
+            removeClassToElements(["hero", "footer"], "light-mode");
+            removeClass('table-striped', 'table-light');
+            addClass('table-striped', 'table-dark');
+        }
+
+        function addClassToElements(ids, className) {
+            ids.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.add(className);
+                }
+            });
+        }
+
+        function removeClassToElements(ids, className) {
+            ids.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.remove(className);
+                }
+            });
+        }
+
+        function addClass(classNameTarget, classNameToAdd) {
+            const elements = document.querySelectorAll(`.${classNameTarget}`);
+            elements.forEach(element => {
+                if (!element.classList.contains(classNameToAdd)) {
+                    element.classList.add(classNameToAdd);
+                }
+            });
+        }
+
+        function removeClass(classNameTarget, classNameToRemove) {
+            const elements = document.querySelectorAll(`.${classNameTarget}`);
+            elements.forEach(element => {
+                if (element.classList.contains(classNameToRemove)) {
+                    element.classList.remove(classNameToRemove);
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const taskNameInput = document.getElementById('taskName');
+            const taskDateInput = document.getElementById('taskDate');
+            const saveBtn = document.getElementById('saveBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const todoTableBody = document.getElementById('todoTableBody');
+
+            let todos = [];
+            let editIndex = null;
+
+            function init() {
+                loadTodos();
+                renderTodoTable();
+
+                saveBtn.addEventListener('click', saveTodo);
+                clearBtn.addEventListener('click', clearForm);
+            }
+
+            function loadTodos() {
+                const storedTodos = localStorage.getItem('todos');
+                if (storedTodos) {
+                    todos = JSON.parse(storedTodos);
+                }
+            }
+
+            function saveTodos() {
+                localStorage.setItem('todos', JSON.stringify(todos));
+            }
+
+            function renderTodoTable() {
+                todoTableBody.innerHTML = '';
+
+                todos.forEach((todo, index) => {
+                    const row = document.createElement('tr');
+
+                    if (todo.completed) {
+                        row.classList.add('completed');
+                    }
+
+                    row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${todo.name}</td>
+                <td>${formatDate(todo.date)}</td>
+                <td><input type="checkbox" ${todo.completed ? 'checked' : ''} data-index="${index}"></td>
+                <td class="actions">
+                    <button class="btn btn-success edit-btn" data-index="${index}">Edit</button>
+                    <button class="btn btn-danger delete-btn" data-index="${index}">Delete</button>
+                </td>
+            `;
+
+                    todoTableBody.appendChild(row);
+                });
+
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.addEventListener('change', toggleComplete);
+                });
+
+                document.querySelectorAll('.edit-btn').forEach(btn => {
+                    btn.addEventListener('click', editTodo);
+                });
+
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.addEventListener('click', deleteTodo);
+                });
+            }
+
+            function formatDate(dateString) {
+                const options = { year: 'numeric', month: 'short', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString(undefined, options);
+            }
+
+            function saveTodo() {
+                const name = taskNameInput.value.trim();
+                const date = taskDateInput.value;
+
+                if (!name || !date) {
+                    alert('Please fill in both fields');
+                    return;
+                }
+
+                if (editIndex !== null) {
+                    todos[editIndex] = { name, date, completed: todos[editIndex].completed };
+                    editIndex = null;
+                    saveBtn.textContent = 'Save';
+                } else {
+                    todos.push({ name, date, completed: false });
+                }
+
+                saveTodos();
+                renderTodoTable();
+                clearForm();
+            }
+
+            function clearForm() {
+                taskNameInput.value = '';
+                taskDateInput.value = '';
+                editIndex = null;
+                saveBtn.textContent = 'Save';
+            }
+
+            function toggleComplete(e) {
+                const index = e.target.dataset.index;
+                todos[index].completed = e.target.checked;
+                saveTodos();
+                renderTodoTable();
+            }
+
+            function editTodo(e) {
+                const index = e.target.dataset.index;
+                const todo = todos[index];
+
+                taskNameInput.value = todo.name;
+                taskDateInput.value = todo.date;
+                editIndex = index;
+                saveBtn.textContent = 'Update';
+            }
+
+            function deleteTodo(e) {
+                if (confirm('Are you sure you want to delete this task?')) {
+                    const index = e.target.dataset.index;
+                    todos.splice(index, 1);
+                    saveTodos();
+                    renderTodoTable();
+                }
+            }
+
+            init();
+        });
+    </script>
+</body>
+
+</html>

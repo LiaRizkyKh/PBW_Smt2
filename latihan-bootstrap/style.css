@@ -39,3 +39,10 @@
 #footer.light-mode {
     color: black !important;
 }
+
+.form-group label{
+    width: 180px;
+}
+.btn-filter{
+    width: 100px;
+}
